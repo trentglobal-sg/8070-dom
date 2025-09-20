@@ -1,0 +1,31 @@
+h1 {
+    font-size: 42px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+#introduction {
+    color: red;
+}
+
+/* match all <p> elements with class `important` */
+p.important {
+    background-color: purple;
+}
+
+/* match all elements with class `important` nested inside
+a <p> */
+p .important {
+    background-color: yellow;
+}
+
+li.important {
+    background-color:red;
+}
+
+h2.important {
+    font-variant:small-caps;
+}
+
+#dark-mode-tool-tip {
+    display: none;
+}
