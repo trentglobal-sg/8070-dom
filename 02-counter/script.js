@@ -1,31 +1,39 @@
 
 // Alternative 1: Mutate the innerText of `count`
-// const incrementBtn = document.querySelector("#incrementBtn");
-// incrementBtn.addEventListener("click", function(){
-//     const count = document.querySelector("#count");
-//     count.innerText = Number(count.innerText) + 1;  
-// });
-
-// Alternative 2: We use a variable to model the number
 const incrementBtn = document.querySelector("#incrementBtn");
 const count = document.querySelector("#count");
+const displayCount = document.querySelector("#displayCount");
+incrementBtn.addEventListener("click", function () {
+    if (Number(count.innerText) + 1 > 20) {
+        return;
+    }
+    count.innerText = Number(count.innerText) + 1;
+    if (Number(count.innerText) % 2 == 0) {
+        count.style.color = "green";
+    } else {
+        count.style.color = "red";
+    }
 
-let number = 0;
+    displayCount.innerText = count.innerText;
+});
 
-function updateCount() {
-    count.innerText = parseInt(number);
-}
-
-incrementBtn.addEventListener("click", function(){
-    number++;
-    updateCount();
+const decrementBtn = document.querySelector("#decrementBtn");
+decrementBtn.addEventListener("click", function () {
+    if (Number(count.innerText) - 1 < 0) {
+        return;
+    }
+    count.innerText = Number(count.innerText) - 1;
+    displayCount.innerText = count.innerText;
+    if (Number(count.innerText) % 2 == 0) {
+        count.style.color = "green";
+    } else {
+        count.style.color = "red";
+    }
 })
 
-/* EXTRA CHALLENGES
-Counter challenges:
-1. Make sure the number cannot go above 20
-2. Make sure the Number cannot go below 0
-3. Display the number in red if odd
-4. Display the number in green if even
-
-*/
+const resetBtn = document.querySelector("#zeroBtn");
+resetBtn.addEventListener("click", function () {
+    count.innerText = 0;
+    displayCount.innerText = count.innerText;
+    count.style.color = "green";
+})
