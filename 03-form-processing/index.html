@@ -14,6 +14,7 @@
         <div>
             <label>User Name:</label>
             <input type="text" id="username" />
+            <div class="error" id="username-error"></div>
         </div>
         <div>
             <label>Email:</label>
@@ -29,6 +30,32 @@
             <input type="radio" name="saluations" class="saluations" value="Mdm."/><label>Mdm.</label>
             <input type="radio" name="saluations" class="saluations" value="Mrs."/><label>Mrs.</label>
             <input type="radio" name="saluations" class="saluations" value="Ms."/><label>Ms.</label>
+        </div>
+        <div>
+            <label>Hobbies</label>
+            <input type="checkbox" class="hobbies" value="sleeping"/><label>Sleeping</label>
+            <input type="checkbox" class="hobbies" value="eating"/><label>Eating</label>
+            <input type="checkbox" class="hobbies" value="social-media"/><label>Social Media</label>
+            <input type="checkbox" class="hobbies" value="cycling"/><label>Cycling</label>
+        </div>
+        <div>
+            <label>Country</label>
+            <select id="country">
+                <option value="sg">Singapore</option>
+                <option value="my">Malaysia</option>
+                <option value="in">Indonesia</option>
+                <option value="th">Thailand</option>
+            </select>
+        </div>
+        <div>
+            <label>Services They Are Interested In</label>
+            <select id="interested-services" multiple>
+                <option value="gym-classes">Gym classes</option>
+                <option value="movies">Movie screening</option>
+                <option value="hikes">Nature Hikes</option>
+                <option value="boardgames">Board games</option>
+                <option value="others">Others</option>
+            </select>
         </div>
         <button id="createBtn">Create Account</button>
     </div>

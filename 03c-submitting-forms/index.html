@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form id="login">
+        <div>
+            <label>Email:</label>
+            <input type="email" name="email" id="email" />
+        </div>
+        <div>
+            <label>Password</label>
+            <input type="password" name="password" id="password"/>
+        </div>
+        <div>
+            <label>Remember Me</label>
+            <input type="radio" name="remember-me" value="yes"/><label>Yes</label>
+            <input type="radio" name="remember-me" value="no"/><label>No</label>
+        </div>
+        <div>
+            <input type="checkbox" name="options" value="cookies"/><label>Enable cookies</label>
+            <input type="checkbox" name="options" value="dark"/><label>Enable dark mode</label>
+            <input type="checkbox" name="options" value="autosave"/><label>Auto-save</label>
+        </div>
+        <input type="submit" value="Login" />
+        <!-- any button in a form will always submit -->
+    </form>
+    <script src="script.js"></script>
+</body>
+
+</html>
