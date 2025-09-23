@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- We can remove the <form> element and replace with just <div>
+        if there is no server -->
+    <div>
+        <div>
+            <label>User Name:</label>
+            <input type="text" id="username" />
+        </div>
+        <div>
+            <label>Email:</label>
+            <input type="text" id="email" />
+        </div>
+        <div>
+            <label>CAPTCHA : Enter the sum of 6 + 3</label>
+            <input type="number" id="sum" />
+        </div>
+        <div>
+            <label>Saluations</label>
+            <input type="radio" name="saluations" class="saluations" value="Mr."/><label>Mr.</label>
+            <input type="radio" name="saluations" class="saluations" value="Mdm."/><label>Mdm.</label>
+            <input type="radio" name="saluations" class="saluations" value="Mrs."/><label>Mrs.</label>
+            <input type="radio" name="saluations" class="saluations" value="Ms."/><label>Ms.</label>
+        </div>
+        <button id="createBtn">Create Account</button>
+    </div>
+
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>
