@@ -17,7 +17,26 @@ function renderList(tasks) {
             renderList(tasks);
         })
 
+        const editButtonEl = document.createElement("button");
+        editButtonEl.className = "btn btn-success btn-sm ms-2 me-2";
+        editButtonEl.innerText = "Edit";
+        editButtonEl.addEventListener("click", function(){
+            const newName = prompt("Enter the new name of the task", task.name);
+            const urgency = parseInt(prompt("Enter the new urgency"), task.urgency +"");
+            const importance = prompt("Enter the importance", task.importance);
+            const done = prompt("Is it done (enter y for yes)", task.done == true ? "y":"n").toLowerCase() == "y";
+
+            editTaskByID(tasks, task.id, newName, urgency, importance, done);
+            renderList(tasks);
+
+
+
+
+        })
+
+          liElement.appendChild(editButtonEl);
         liElement.appendChild(deleteButtonEl);
+      
 
         taskListEl.appendChild(liElement);
 

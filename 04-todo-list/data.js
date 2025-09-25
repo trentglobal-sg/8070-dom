@@ -61,3 +61,18 @@ function deleteTaskByID(tasks, taskId) {
 
     tasks.splice(taskIndexToDelete, 1);
 }
+
+function editTaskByID(tasks, taskId, newName, newUrgency, newImportance, newDone ) {
+    const index = tasks.findIndex(function(element){
+        return element.id == taskId;
+    })
+    const modifiedTask = {
+        id: taskId,
+        name: newName,
+        urgency: newUrgency,
+        newImportance: newImportance,
+        done: newDone
+    }
+    // replace the original task at the index with the new task
+    tasks[index] = modifiedTask;
+}
