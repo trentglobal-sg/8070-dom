@@ -3,6 +3,7 @@ function renderContactList(contacts, onDeleteContact) {
     const contactListEl = document.querySelector("#contact-list");
     contactListEl.innerHTML = "";
     for (let contact of contacts) {
+     
         const trEl = document.createElement('tr');
         trEl.innerHTML = `
             <td>${contact.id}</td>
@@ -12,6 +13,8 @@ function renderContactList(contacts, onDeleteContact) {
             <td>${contact.salutation}</td>
             <td>${contact.email}</td>
             <td>
+                <button class="btn btn-primary btn-sm edit-btn" 
+                              data-contact-id="${contact.id}">Edit</button>
                 <button class="btn btn-danger btn-sm delete-btn">Delete</button>
             </td>
         `
