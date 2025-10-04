@@ -1,0 +1,92 @@
+[
+  {
+    "product_id": 1001,
+    "sku": "ACM-HAM-001",
+    "name": "Claw Hammer",
+    "price": 12.99,
+    "model": "Professional 16oz",
+    "description": "Forged steel claw hammer with fiberglass handle for durability and reduced vibration.",
+    "category": "Hand Tools"
+  },
+  {
+    "product_id": 1002,
+    "sku": "ACM-PWR-005",
+    "name": "Cordless Drill Driver",
+    "price": 89.99,
+    "model": "VoltMaster 18V",
+    "description": "18-volt cordless drill/driver kit with 2 batteries, charger, and carrying case.",
+    "category": "Power Tools"
+  },
+  {
+    "product_id": 1003,
+    "sku": "ACM-FAS-012",
+    "name": "Assorted Wood Screws",
+    "price": 6.49,
+    "model": "Multi-Pack #8",
+    "description": "200-piece assortment of #8 x 1\" to 2.5\" zinc-plated wood screws.",
+    "category": "Fasteners"
+  },
+  {
+    "product_id": 1004,
+    "sku": "ACM-PNT-023",
+    "name": "Interior Latex Paint",
+    "price": 34.99,
+    "model": "Eggshell Finish",
+    "description": "One-gallon can of premium interior paint, eggshell finish. Available in various colors.",
+    "category": "Paint & Supplies"
+  },
+  {
+    "product_id": 1005,
+    "sku": "ACM-PIP-008",
+    "name": "Adjustable Wrench",
+    "price": 18.50,
+    "model": "10-inch Chrome",
+    "description": "Chrome-plated adjustable wrench with smooth jaw adjustment and comfortable grip.",
+    "category": "Plumbing"
+  },
+  {
+    "product_id": 1006,
+    "sku": "ACM-ELC-017",
+    "name": "LED Shop Light",
+    "price": 24.99,
+    "model": "4ft 40W",
+    "description": "Energy-efficient 4-foot LED shop light, 5000K daylight, plug-in or hardwire.",
+    "category": "Electrical"
+  },
+  {
+    "product_id": 1007,
+    "sku": "ACM-OUT-030",
+    "name": "Gas Grill",
+    "price": 299.99,
+    "model": "Pro Chef 3-Burner",
+    "description": "3-burner propane gas grill with side shelves, 500 sq. inch cooking surface.",
+    "category": "Outdoor & Garden"
+  },
+  {
+    "product_id": 1008,
+    "sku": "ACM-HDW-044",
+    "name": "Deadbolt Lock",
+    "price": 22.75,
+    "model": "Single Cylinder Satin Nickel",
+    "description": "Grade 2 single cylinder deadbolt with 2.5\" backset, includes keys.",
+    "category": "Hardware"
+  },
+  {
+    "product_id": 1009,
+    "sku": "ACM-SAF-009",
+    "name": "Fire Extinguisher",
+    "price": 39.99,
+    "model": "ABC 5-Pound",
+    "description": "5-lb ABC dry chemical fire extinguisher for home and workshop use.",
+    "category": "Safety"
+  },
+  {
+    "product_id": 1010,
+    "sku": "ACM-TOL-101",
+    "name": "Tape Measure",
+    "price": 10.99,
+    "model": "25ft Power Lock",
+    "description": "25-foot tape measure with durable blade, magnetic tip, and easy-read markings.",
+    "category": "Tools"
+  }
+]
