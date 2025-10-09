@@ -33,7 +33,6 @@ async function main() {
         onEachFeature:function(feature, layer) {
             // feature is the feature data from the geojson
             // layer is the actual leaflet layer created from the feature (what the user is going to see)
-            console.log(feature.properties);
             layer.bindPopup(`
                  <ul>
                     <li>Name: ${feature.properties.PARK}</li>
@@ -60,8 +59,49 @@ async function main() {
                 </ul>`);
         }
     });
-    cyclingLayer.addTo(map);
+    // cyclingLayer.addTo(map);
 
+    // Create a generic layer group (that can store layer groups)
+    const touristLayer = L.layerGroup();
+    // touristLayer.addTo(map);
+
+    const locations = await loadData("locations.json");
+    locations.tourist_spots.forEach(function(spot){
+        const marker = L.marker([spot.lat, spot.lng]);
+        marker.addTo(touristLayer);
+        marker.bindPopup(`<h1>${spot.name}</h1>`)
+    })
+
+    // Implement the layer control
+    // we have to define the base layers and the overlay
+    // base layers = at least one can be selected
+    // overlays = optional, any number of overlays can be toggled on
+
+    const baseLayers = {
+        "NParks Tracks":nparkLayer,
+        "Cycling Tracks":cyclingLayer
+    }
+
+    const overlays = {
+        "Tourist Spots": touristLayer
+    }
+
+    // create the control
+    L.control.layers(baseLayers, overlays).addTo(map);
+
+    // add event click listner to the show-tourist-btn
+    document.querySelector("#show-tourist-btn")
+        .addEventListener("click", function(event){
+            if (map.hasLayer(touristLayer)) {
+                // remove the tourist layer 
+                map.removeLayer(touristLayer);
+                event.target.innerText = "Show Tourist Spots";
+            } else {
+                // add the tourist layer if the map is not showing it right now
+                map.addLayer(touristLayer);
+                event.target.innerText = "Hide Tourist Spots";
+            }
+        })
 
 }
 

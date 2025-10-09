@@ -1,0 +1,26 @@
+#map {
+    height: 100vh
+}
+
+#map-container {
+    position: relative;
+}
+
+#search-container {
+    position: absolute;
+    z-index: 1000;
+    top: 5px;
+    left: 45px;
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 25px;
+}
+
+#search-results {
+    max-height: 80vh;
+    overflow-y:scroll;
+}
+
+#search-results > div {
+    padding: 10px;
+    cursor: pointer;
+}
