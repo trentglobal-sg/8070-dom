@@ -3,14 +3,14 @@ function initMap(lat, lng, mapElementID) {
     const map = L.map(mapElementID);
     map.setView(coordinate, 13);
 
-    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 19,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    // Use Google Maps as base layer via GoogleMutant
+    const googleLayer = L.gridLayer.googleMutant({
+        type: 'roadmap' // options: 'roadmap', 'satellite', 'terrain', 'hybrid'
     }).addTo(map);
 
     const searchResultLayer = L.layerGroup().addTo(map);
 
-    return {map, searchResultLayer};
+    return {map, searchResultLayer, googleLayer};
 }
 
 function displayResults(mapConfig, results) {
@@ -70,8 +70,8 @@ async function displayRecommendations(mapConfig, results) {
     recommendationResultDisplay.innerHTML = ""; // remove all children elements
 
     results.reply.locations.forEach(async function(location, index){
-        // const marker = L.marker([location.lat, location.lng]);
-        // marker.addTo(mapConfig.searchResultLayer);
+        const marker = L.marker([location.lat, location.lng]);
+        marker.addTo(mapConfig.searchResultLayer);
         
         // find matching grounding chunk
         const groundingChunk = results.groundingChunks && results.groundingChunks[index];
@@ -93,7 +93,7 @@ async function displayRecommendations(mapConfig, results) {
         
         marker.bindPopup(createPopupContent);
         
-        // create the search result (no integration with our map since it's against Google TOS)
+        // create the search result
         const resultElement = document.createElement('div');
         resultElement.className = 'result-item';
         
@@ -110,10 +110,10 @@ async function displayRecommendations(mapConfig, results) {
 
         
         // add click to result so that the map will zoom to the location
-        // resultElement.addEventListener("click", function(){
-        //     mapConfig.map.flyTo([location.lat, location.lng], 16);
-        //     marker.openPopup();
-        // })
+        resultElement.addEventListener("click", function(){
+            mapConfig.map.flyTo([location.lat, location.lng], 16);
+            marker.openPopup();
+        })
     });
    
 }
