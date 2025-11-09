@@ -8,11 +8,13 @@ function initMap(lat, lng, mapElementID) {
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
-    return map;
+    const searchResultLayer = L.layerGroup().addTo(map);
+
+    return {map, searchResultLayer};
 }
 
-function displayResults(map, searchResultLayer, results) {
-    searchResultLayer.clearLayers(); // remove all existing marker, if any
+function displayResults(mapConfig, results) {
+    mapConfig.searchResultLayer.clearLayers(); // remove all existing marker, if any
    
     const searchResultDisplay = document.querySelector("#search-results");
     searchResultDisplay.innerHTML = ""; // remove all children elements
@@ -21,7 +23,7 @@ function displayResults(map, searchResultLayer, results) {
 
         // create the marker
         const marker = L.marker([result.latitude, result.longitude]);
-        marker.addTo(searchResultLayer);
+        marker.addTo(mapConfig.searchResultLayer);
         marker.bindPopup(`
             <h1>${result.name}</h1>
             <ul>
@@ -37,7 +39,7 @@ function displayResults(map, searchResultLayer, results) {
         
         // add click to result so that the map will zoom to the location
         resultElement.addEventListener("click", function(){
-            map.flyTo([result.latitude, result.longitude], 16);
+            mapConfig.map.flyTo([result.latitude, result.longitude], 16);
             marker.openPopup();
         })
     });
