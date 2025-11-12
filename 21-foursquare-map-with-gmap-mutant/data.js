@@ -23,30 +23,18 @@ async function recommend(lat, lng, query) {
     })
 
     
+    console.log(response.data);
+
     // remove data with null lat or lng, or with 0 values
-    response.data.reply.locations = response.data.reply.locations.filter(function(location){
+    response.data.content.locations = response.data.content.locations.filter(function(location){
         return location.lat !== null && location.lng !== null && location.lat !== 0 && location.lng !== 0;
     });
 
     // if empty results, throw an error
-    if (response.data.reply.locations.length === 0) {
+    if (response.data.content.locations.length === 0) {
         throw new Error("The AI didn't find any results. Please try again");
     }
-
 
     return response.data;
 }
 
-async function fetchOgImage(url) {
-    try {
-        const response = await axios.get(API_BASE_URL + "/api/og-image", {
-            params: {
-                url: url
-            }
-        });
-        return response.data.ogImage;
-    } catch (error) {
-        console.error("Failed to fetch og:image:", error);
-        return null;
-    }
-}

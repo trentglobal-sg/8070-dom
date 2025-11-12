@@ -69,7 +69,7 @@ async function displayRecommendations(mapConfig, results) {
     const recommendationResultDisplay = document.querySelector("#recommend-results");
     recommendationResultDisplay.innerHTML = ""; // remove all children elements
 
-    results.reply.locations.forEach(async function(location, index){
+    results.content.locations.forEach(async function(location, index){
         const marker = L.marker([location.lat, location.lng]);
         marker.addTo(mapConfig.searchResultLayer);
         

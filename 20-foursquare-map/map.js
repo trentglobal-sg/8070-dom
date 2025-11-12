@@ -69,9 +69,9 @@ async function displayRecommendations(mapConfig, results) {
     const recommendationResultDisplay = document.querySelector("#recommend-results");
     recommendationResultDisplay.innerHTML = ""; // remove all children elements
 
-    results.reply.locations.forEach(async function(location, index){
-        // const marker = L.marker([location.lat, location.lng]);
-        // marker.addTo(mapConfig.searchResultLayer);
+    results.locations.forEach(async function(location, index){
+        const marker = L.marker([location.lat, location.lng]);
+        marker.addTo(mapConfig.searchResultLayer);
         
         // find matching grounding chunk
         const groundingChunk = results.groundingChunks && results.groundingChunks[index];
@@ -99,21 +99,17 @@ async function displayRecommendations(mapConfig, results) {
         
         resultElement.innerHTML = `
             <div class="result-info">
-                <div class="result-name">${location.name}</div>
-                ${mapsData ? `<div class="result-attribution">
-                    <img src="https://www.google.com/favicon.ico" width="12" height="12"> 
-                    <a href="${mapsData.uri}" target="_blank">Google Maps</a>
-                </div>` : ''}
+                <div class="result-name">${location.name}</div>              
             </div>
         `;
         recommendationResultDisplay.appendChild(resultElement);       
 
         
         // add click to result so that the map will zoom to the location
-        // resultElement.addEventListener("click", function(){
-        //     mapConfig.map.flyTo([location.lat, location.lng], 16);
-        //     marker.openPopup();
-        // })
+        resultElement.addEventListener("click", function(){
+            mapConfig.map.flyTo([location.lat, location.lng], 16);
+            marker.openPopup();
+        })
     });
    
 }
